@@ -8,7 +8,7 @@
 
 <body>
   <audio id="background-music" loop>
-  <source src="tetris.mp3" type="audio/mpeg">
+  <source src="aud.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
@@ -19,10 +19,18 @@
       <p>Score: <span id="score">0</span></p>
       <p>Level: <span id="level">1</span></p>
       <button id="start-btn" onclick="startGame()">Start</button>
-      <button id="start-btn" onclick="startBackgroundMusic()">M <br> music</button>
+      <button id="start-btn" id="mus" onclick="startBackgroundMusic()">M <br> music</button>
       <button id="pause-btn" onclick="togglePause()" style="display: none;">Pause</button>
+
+        <div class="mobile-controls">
+  <button class="control-btn" id="left"onclick="moveTetrominoLeft()">←</button>
+  <button class="control-btn"id="down" onclick="moveTetrominoDown()">↓</button>
+  <button class="control-btn" id="right"onclick="moveTetrominoRight()">→</button>
+  <button class="control-btn" id="up" onclick="rotateTetromino()">↑</button>
+</div>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

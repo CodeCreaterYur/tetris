@@ -7,9 +7,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background:url(jf.jfif);
+  background: url(jf.jfif);
+  background-size: cover;
 }
+.start-btn{
+  margin-top: 100vh;
+    position: absolute;
 
+}
 .game-container {
   display: flex;
   flex-direction: row;
@@ -54,7 +59,7 @@ body {
 
 /* Стили кнопок */
 .game-info button {
-  background-image: linear-gradient(to right, #7986cb, #9fa8da);
+  background-color: #490ff9;
   color: white;
   border: none;
   padding: 16px 32px;
@@ -62,13 +67,17 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 25px 0;
+  margin: 37px 0;
   cursor: pointer;
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(121, 134, 203, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
+#up{
+  position: absolute;
+  bottom: 127px;
+  left: 120vh;
+}
 .game-info button:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 40px rgba(121, 134, 203, 0.7);
@@ -81,40 +90,66 @@ body {
   box-shadow: 0 0 15px rgba(121, 134, 203, 0.5);
 }
 
-
-/* Медиа-запрос для мобильных устройств */
-@media only screen and (max-width: 600px) {
-  body {
-    background-size: cover; /* Задаем фону размер, чтобы он покрывал всю область */
-  }
-  
+@media only screen and (max-width: 480px) {
+  /* Дополнительные стили для мобильных устройств */
   .game-container {
-    flex-direction: column; /* Переключаем расположение контейнера игры на вертикальное */
-    padding: 20px; /* Уменьшаем отступы */
+    flex-direction: column;
+    padding: 30px;
   }
 
   #game-board {
-    margin-right: 0; /* Убираем правый отступ у игрового поля */
-    margin-bottom: 20px; /* Добавляем нижний отступ */
+    margin-right: 0;
+    margin-bottom: 30px;
   }
 
   .game-info {
-    margin-right: 0; /* Убираем правый отступ */
-    text-align: center; /* Выравниваем текст по центру */
+    margin-right: 0;
+    text-align: center;
   }
 
   .game-info h1 {
-    font-size: 40px; /* Уменьшаем размер заголовка */
-    margin-bottom: 20px; /* Уменьшаем отступ снизу */
+    font-size: 48px;
+    margin-bottom: 30px;
   }
 
   .game-info p {
-    font-size: 20px; /* Уменьшаем размер текста */
-    margin-bottom: 15px; /* Уменьшаем отступ снизу */
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .game-info button {
-    font-size: 16px; /* Уменьшаем размер кнопок */
-    margin: 15px 0; /* Уменьшаем отступы */
+    padding: 14px 28px; /* Уменьшаем размер кнопок для мобильных устройств */
+  }
+
+  .mobile-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .control-btn {
+    background-color: #7986cb;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(121, 134, 203, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .control-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(121, 134, 203, 0.7);
+  }
+
+  .control-btn i {
+    pointer-events: none;
   }
 }

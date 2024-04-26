@@ -36,11 +36,6 @@ canvas.height = BOARD_HEIGHT * BLOCK_SIZE;
 // Controls
 document.addEventListener('keydown', handleKeyPress);
 
-// Touch controls
-let touchStartX = 0;
-let touchStartY = 0;
-
-// Handle key press
 function handleKeyPress(event) {
   if (isGameOver || isPaused) return;
 
@@ -63,42 +58,42 @@ function handleKeyPress(event) {
   }
 }
 
-// Handle touch start
-canvas.addEventListener('touchstart', function(event) {
-  if (isGameOver || isPaused) return;
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
-});
+function moveTetrominoLeft() {
+  currentX--;
+  if (collisionDetected()) {
+    currentX++;
+  }
+}
 
-// Handle touch move
-canvas.addEventListener('touchmove', function(event) {
-  event.preventDefault(); // Prevent scrolling when touching canvas
-});
+function moveTetrominoRight() {
+  currentX++;
+  if (collisionDetected()) {
+    currentX--;
+  }
+}
 
-// Handle touch end
-canvas.addEventListener('touchend', function(event) {
-  const touchEndX = event.changedTouches[0].clientX;
-  const touchEndY = event.changedTouches[0].clientY;
+function moveTetrominoDown() {
+  currentY++;
+  if (collisionDetected()) {
+    currentY--;
+    lockTetromino();
+    spawnNewTetromino();
+  }
+}
 
-  const deltaX = touchEndX - touchStartX;
-  const deltaY = touchEndY - touchStartY;
-
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    // Horizontal swipe
-    if (deltaX > 0) {
-      moveTetrominoRight();
-    } else {
-      moveTetrominoLeft();
-    }
-  } else {
-    // Vertical swipe
-    if (deltaY > 0) {
-      moveTetrominoDown();
-    } else {
-      rotateTetromino();
+function rotateTetromino() {
+  const rotatedTetromino = [];
+  for (let x = 0; x < currentTetromino[0].length; x++) {
+    rotatedTetromino.push([]);
+    for (let y = 0; y < currentTetromino.length; y++) {
+      rotatedTetromino[x].unshift(currentTetromino[y][x]);
     }
   }
-});
+  currentTetromino = rotatedTetromino;
+  if (collisionDetected()) {
+    rotateTetromino(); // Check collision after rotation
+  }
+}
 
 // Game loop
 function gameLoop() {
@@ -149,7 +144,6 @@ function spawnNewTetromino() {
   }
 }
 
-// Lock tetromino
 function lockTetromino() {
   for (let y = 0; y < currentTetromino.length; y++) {
     for (let x = 0; x < currentTetromino[y].length; x++) {
@@ -232,7 +226,7 @@ function checkGameOver() {
   return false;
 }
 
-// Get color based on tetromino
+// Function to get color based on tetromino
 function getTetrominoColor(tetromino) {
   if (tetromino === TETROMINOS[0]) return '#00bcd4'; // Blue color for I-Tetromino
   if (tetromino === TETROMINOS[1]) return '#ffc107'; // Yellow color for O-Tetromino
@@ -243,7 +237,22 @@ function getTetrominoColor(tetromino) {
   if (tetromino === TETROMINOS[6]) return '#9c27b0'; // Purple color for T-Tetromino
 }
 
-// Game start
+function showGameOverScreen() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'white';
+  ctx.font = '48px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2 - 24);
+  ctx.font = '24px Arial';
+  ctx.fillText('Your score: ' + score, canvas.width / 2, canvas.height / 2 + 24);
+  ctx.font = '18px Arial';
+  ctx.fillText('Press "Start" to play again', canvas.width / 2, canvas.height / 2 + 60);
+  ctx.fillText('Press "m" to toggle music', canvas.width / 2, canvas.height / 2 + 100); // Added message here
+}
+
+// Start the game
 function startGame() {
   gameBoard = Array.from({ length: BOARD_HEIGHT }, () => Array(BOARD_WIDTH).fill(0));
   score = 0;
@@ -262,11 +271,51 @@ function startGame() {
   });
 }
 
-// Start background music
 function startBackgroundMusic() {
   // Play background music
   const backgroundMusic = document.getElementById('background-music');
   backgroundMusic.play();
 }
 
+// Добавить обработчики событий касания
+canvas.addEventListener('touchstart', handleTouchStart);
+canvas.addEventListener('touchmove', handleTouchMove);
+canvas.addEventListener('touchend', handleTouchEnd);
+
+let touchStartX, touchStartY;
+
+function handleTouchStart(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+}
+
+function handleTouchMove(event) {
+  const touchX = event.touches[0].clientX;
+  const touchY = event.touches[0].clientY;
+  const deltaX = touchX - touchStartX;
+  const deltaY = touchY - touchStartY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    if (deltaX < -50) {
+      moveTetrominoLeft();
+    } else if (deltaX > 50) {
+      moveTetrominoRight();
+    }
+  } else {
+    if (deltaY > 50) {
+      moveTetrominoDown();
+    } else if (deltaY < -50) {
+      rotateTetromino();
+    }
+  }
+
+  touchStartX = touchX;
+  touchStartY = touchY;
+}
+
+function handleTouchEnd(event) {
+  // Обработка события окончания касания (необязательно)
+}
+
 startGame(); // Start the game when the script is loaded
+
