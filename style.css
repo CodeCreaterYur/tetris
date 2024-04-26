@@ -8,15 +8,13 @@ body {
   align-items: center;
   height: 100vh;
   background: url(jf.jfif);
-  background-size: contain; /* Изменено значение свойства background-size */
-  background-position: center; /* Центрируем изображение */
+  background-size: cover;
 }
-
-.start-btn {
+.start-btn{
   margin-top: 100vh;
-  position: absolute;
-}
+    position: absolute;
 
+}
 .game-container {
   display: flex;
   flex-direction: row;
@@ -75,13 +73,10 @@ body {
   box-shadow: 0 0 30px rgba(121, 134, 203, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-#up {
-  position: absolute;
-  bottom: 127px;
-  left: 120vh;
+#up{
+  bottom: 126px;
+  left: 97vh;
 }
-
 .game-info button:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 40px rgba(121, 134, 203, 0.7);
@@ -94,7 +89,7 @@ body {
   box-shadow: 0 0 15px rgba(121, 134, 203, 0.5);
 }
 
-@media only screen and (max-width: 480px) {
+@media (min-width:768px) and (max-width: 1023px) {
   /* Дополнительные стили для мобильных устройств */
   .game-container {
     flex-direction: column;
