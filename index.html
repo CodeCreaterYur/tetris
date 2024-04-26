@@ -19,18 +19,39 @@
       <p>Score: <span id="score">0</span></p>
       <p>Level: <span id="level">1</span></p>
       <button id="start-btn" onclick="startGame()">Start</button>
-      <button id="start-btn" id="mus" onclick="startBackgroundMusic()">M <br> music</button>
+      <button id="mus" onclick="startBackgroundMusic()">M <br> music</button>
       <button id="pause-btn" onclick="togglePause()" style="display: none;">Pause</button>
 
-        <div class="mobile-controls">
-  <button class="control-btn" id="left"onclick="moveTetrominoLeft()">←</button>
-  <button class="control-btn"id="down" onclick="moveTetrominoDown()">↓</button>
-  <button class="control-btn" id="right"onclick="moveTetrominoRight()">→</button>
-  <button class="control-btn" id="up" onclick="rotateTetromino()">↑</button>
-</div>
+      <div class="mobile-controls">
+        <button class="control-btn" id="left" onmousedown="startMoveLeft()" onmouseup="endMove()">←</button>
+        <button class="control-btn" id="down" onmousedown="startMoveDown()" onmouseup="endMove()">↓</button>
+        <button class="control-btn" id="right" onmousedown="startMoveRight()" onmouseup="endMove()">→</button>
+        <button class="control-btn" id="up" onclick="rotateTetromino()">↑</button>
+      </div>
     </div>
   </div>
 
   <script src="script.js"></script>
+
+  <script>
+    let moveInterval;
+    
+    function startMoveLeft() {
+      moveInterval = setInterval(moveTetrominoLeft, 100);
+    }
+    
+    function startMoveRight() {
+      moveInterval = setInterval(moveTetrominoRight, 100);
+    }
+    
+    function startMoveDown() {
+      moveInterval = setInterval(moveTetrominoDown, 100);
+    }
+    
+    function endMove() {
+      clearInterval(moveInterval);
+    }
+  </script>
+
 </body>
 </html>
