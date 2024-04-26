@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -10,11 +9,12 @@ body {
   background: url(jf.jfif);
   background-size: cover;
 }
-.start-btn{
-  margin-top: 100vh;
-    position: absolute;
 
+.start-btn {
+  margin-top: 100vh;
+  position: absolute;
 }
+
 .game-container {
   display: flex;
   flex-direction: row;
@@ -27,14 +27,12 @@ body {
   opacity: 0.9;
 }
 
-/* Стили игрового поля */
 #game-board {
   border: 6px solid #e1e1e1;
   border-radius: 15px;
   margin-right: 50px;
 }
 
-/* Стили информационной панели */
 .game-info {
   display: flex;
   flex-direction: column;
@@ -57,7 +55,6 @@ body {
   font-weight: 700;
 }
 
-/* Стили кнопок */
 .game-info button {
   background-color: #490ff9;
   color: white;
@@ -73,23 +70,23 @@ body {
   box-shadow: 0 0 30px rgba(121, 134, 203, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-#up{
+
+#up {
   bottom: 126px;
   left: 97vh;
 }
+
 .game-info button:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 40px rgba(121, 134, 203, 0.7);
 }
 
-/* Стили тетрамино */
 .tetromino {
   background-image: linear-gradient(to bottom right, #7986cb, #9fa8da);
   border-radius: 6px;
   box-shadow: 0 0 15px rgba(121, 134, 203, 0.5);
 }
 
-/* Добавленные стили для мобильных устройств */
 @media (min-width:320px) and (max-width: 800px) {
   body {
     justify-content: flex-start;
@@ -112,36 +109,36 @@ body {
 
   .game-info {
     text-align: center;
-    margin-top: 10px; /* Уменьшаем отступ сверху */
-    padding: 10px; /* Уменьшаем внутренний отступ */
+    margin-top: 5px;
+    padding: 5px;
   }
 
   .game-info h1 {
-    font-size: 32px; /* Уменьшаем размер заголовка */
-    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+    font-size: 20px;
+    margin-bottom: 5px;
   }
 
   .game-info p {
-    font-size: 16px; /* Уменьшаем размер текста */
-    margin-bottom: 8px; /* Уменьшаем отступ снизу */
+    font-size: 12px;
+    margin-bottom: 4px;
   }
 
   .game-info button {
-    font-size: 14px; /* Уменьшаем размер кнопок */
-    padding: 8px 16px; /* Уменьшаем размер кнопок */
-    margin: 5px 0; /* Уменьшаем отступы между кнопками */
+    font-size: 10px;
+    padding: 4px 8px;
+    margin: 3px 0;
   }
 
   .mobile-controls {
     display: flex;
     justify-content: space-around;
-    margin-top: 10px; /* Уменьшаем отступ сверху */
+    margin-top: 5px;
   }
 
   .control-btn {
-    font-size: 20px; /* Уменьшаем размер кнопок управления */
-    width: 40px; /* Уменьшаем размер кнопок управления */
-    height: 40px; /* Уменьшаем размер кнопок управления */
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     margin: 0;
   }

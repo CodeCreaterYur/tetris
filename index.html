@@ -3,36 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400,700&display=swap">
+  <title>Tetris</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400,700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio id="background-music" loop>
+  <audio id="background-music" loop>
     <source src="aud.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
-    <div class="game-container">
-      <canvas id="game-board"></canvas>
-      <div class="game-info">
-        <h1>Tetris</h1>
-        <p>Score: <span id="score">0</span></p>
-        <p>Level: <span id="level">1</span></p>
-        <button id="start-btn" onclick="startGame()">Start</button>
-        <button id="start-btn" id="mus" onclick="startBackgroundMusic()">M <br> music</button>
-        <button id="pause-btn" onclick="togglePause()" style="display: none;">Pause</button>
-
-          <div class="mobile-controls">
-    <button class="control-btn" id="left"onclick="moveTetrominoLeft()">←</button>
-    <button class="control-btn"id="down" onclick="moveTetrominoDown()">↓</button>
-    <button class="control-btn" id="right"onclick="moveTetrominoRight()">→</button>
-    <button class="control-btn" id="up" onclick="rotateTetromino()">↑</button>
-  </div>
+  <div class="game-container">
+    <canvas id="game-board"></canvas>
+    <div class="game-info">
+      <h1>Tetris</h1>
+      <p>Score: <span id="score">0</span></p>
+      <p>Level: <span id="level">1</span></p>
+      <button id="start-btn" onclick="startGame()">Start</button>
+      <button id="music-btn" onclick="startBackgroundMusic()">M <br> music</button>
+      <button id="pause-btn" onclick="togglePause()" style="display: none;">Pause</button>
+      <div class="mobile-controls">
+        <button class="control-btn" id="left" onclick="moveTetrominoLeft()">←</button>
+        <button class="control-btn" id="down" onclick="moveTetrominoDown()">↓</button>
+        <button class="control-btn" id="right" onclick="moveTetrominoRight()">→</button>
+        <button class="control-btn" id="up" onclick="rotateTetromino()">↑</button>
       </div>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
