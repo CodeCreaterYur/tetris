@@ -89,66 +89,63 @@ body {
   box-shadow: 0 0 15px rgba(121, 134, 203, 0.5);
 }
 
+/* Добавленные стили для мобильных устройств */
 @media (min-width:320px) and (max-width: 800px) {
-  /* Дополнительные стили для мобильных устройств */
+  body {
+    justify-content: flex-start;
+    padding: 20px;
+    height: auto;
+    background-size: contain;
+  }
+
   .game-container {
     flex-direction: column;
-    padding: 30px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: none;
   }
 
   #game-board {
-    width: 100%;
-   height: 300px;
+    margin-right: 0;
   }
 
   .game-info {
-    margin-right: 0;
     text-align: center;
+    margin-top: 20px;
   }
 
   .game-info h1 {
-    font-size: 48px;
-    margin-bottom: 30px;
-  }
-
-  .game-info p {
-    font-size: 24px;
+    font-size: 40px;
     margin-bottom: 20px;
   }
 
+  .game-info p {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
   .game-info button {
-    padding: 14px 28px; /* Уменьшаем размер кнопок для мобильных устройств */
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 10px 0; /* Уменьшаем отступы между кнопками */
   }
 
   .mobile-controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 20px;
   }
 
   .control-btn {
-    background-color: #7986cb;
-    color: white;
-    border: 10px red;
-    width: 60px;
-    height: 60px;
     font-size: 24px;
-    margin: 0 10px;
-    cursor: pointer;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    box-shadow: 0 8px 15px rgba(121, 134, 203, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
   }
 
-  .control-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(121, 134, 203, 0.7);
-  }
-
-  .control-btn i {
-    pointer-events: none;
+  #mus {
+    display: none;
   }
 }
