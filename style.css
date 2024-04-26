@@ -112,35 +112,36 @@ body {
 
   .game-info {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+    padding: 10px; /* Уменьшаем внутренний отступ */
   }
 
   .game-info h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 32px; /* Уменьшаем размер заголовка */
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
   }
 
   .game-info p {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 16px; /* Уменьшаем размер текста */
+    margin-bottom: 8px; /* Уменьшаем отступ снизу */
   }
 
   .game-info button {
-    font-size: 16px;
-    padding: 12px 24px;
-    margin: 10px 0; /* Уменьшаем отступы между кнопками */
+    font-size: 14px; /* Уменьшаем размер кнопок */
+    padding: 8px 16px; /* Уменьшаем размер кнопок */
+    margin: 5px 0; /* Уменьшаем отступы между кнопками */
   }
 
   .mobile-controls {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 10px; /* Уменьшаем отступ сверху */
   }
 
   .control-btn {
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
+    font-size: 20px; /* Уменьшаем размер кнопок управления */
+    width: 40px; /* Уменьшаем размер кнопок управления */
+    height: 40px; /* Уменьшаем размер кнопок управления */
     border-radius: 50%;
     margin: 0;
   }
