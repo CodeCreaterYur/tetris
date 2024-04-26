@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tetris</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <audio id="background-music" loop>
+  <source src="tetris.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+  <div class="game-container">
+    <canvas id="game-board"></canvas>
+    <div class="game-info">
+      <h1>Tetris</h1>
+      <p>Score: <span id="score">0</span></p>
+      <p>Level: <span id="level">1</span></p>
+      <button id="start-btn" onclick="startGame()">Start</button>
+      <button id="start-btn" onclick="startBackgroundMusic()">M <br> music</button>
+      <button id="pause-btn" onclick="togglePause()" style="display: none;">Pause</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

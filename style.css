@@ -1,0 +1,120 @@
+/* Общие стили */
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background:url(jf.jfif);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  opacity: 0.9;
+}
+
+/* Стили игрового поля */
+#game-board {
+  border: 6px solid #e1e1e1;
+  border-radius: 15px;
+  margin-right: 50px;
+}
+
+/* Стили информационной панели */
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-info h1 {
+  font-size: 60px;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: 900;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.game-info p {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #555;
+  font-weight: 700;
+}
+
+/* Стили кнопок */
+.game-info button {
+  background-image: linear-gradient(to right, #7986cb, #9fa8da);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 25px 0;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(121, 134, 203, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-info button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(121, 134, 203, 0.7);
+}
+
+/* Стили тетрамино */
+.tetromino {
+  background-image: linear-gradient(to bottom right, #7986cb, #9fa8da);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(121, 134, 203, 0.5);
+}
+
+
+/* Медиа-запрос для мобильных устройств */
+@media only screen and (max-width: 600px) {
+  body {
+    background-size: cover; /* Задаем фону размер, чтобы он покрывал всю область */
+  }
+  
+  .game-container {
+    flex-direction: column; /* Переключаем расположение контейнера игры на вертикальное */
+    padding: 20px; /* Уменьшаем отступы */
+  }
+
+  #game-board {
+    margin-right: 0; /* Убираем правый отступ у игрового поля */
+    margin-bottom: 20px; /* Добавляем нижний отступ */
+  }
+
+  .game-info {
+    margin-right: 0; /* Убираем правый отступ */
+    text-align: center; /* Выравниваем текст по центру */
+  }
+
+  .game-info h1 {
+    font-size: 40px; /* Уменьшаем размер заголовка */
+    margin-bottom: 20px; /* Уменьшаем отступ снизу */
+  }
+
+  .game-info p {
+    font-size: 20px; /* Уменьшаем размер текста */
+    margin-bottom: 15px; /* Уменьшаем отступ снизу */
+  }
+
+  .game-info button {
+    font-size: 16px; /* Уменьшаем размер кнопок */
+    margin: 15px 0; /* Уменьшаем отступы */
+  }
+}
